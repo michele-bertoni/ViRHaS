@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>runcommands.txt</file>
+    </qresource>
+</RCC>

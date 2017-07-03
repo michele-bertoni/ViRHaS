@@ -1,0 +1,13 @@
+Controller is the Raspberry Pi side application for ViRHaS
+
+Usage:
+        controller [NULL]       launch main application
+        controller [OPTIONS]    settings configuration
+
+Options:
+        -h or --help:       prints this page
+        -c or --controls:   sets this Raspberry to active controller mode
+                            use this command on the first Raspberry Pi
+        -s or --slave:      sets this Raspberry to slave mode
+                            use this command on the second Raspberry Pi
+

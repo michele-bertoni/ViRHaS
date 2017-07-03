@@ -1,0 +1,21 @@
+Messages received by mainhost
+
+flag=1 << action << value       control_t data          sent by client
+
+
+flag=2 << message=0         video disabled              sent by client
+       << message=1 << res_w << res_h << fps << lcam << rcam     video enabled with vidsett_t & camflag_t data
+
+flag=3 << message=0         control disabled            sent by client
+       << message=1         control enabled
+
+
+Messages sent by mainhost
+
+type=1 << message=0     control busy          sent to client
+       << message=1     control ok
+
+type=2 << message=0     camera busy           sent to client
+       << message=1     camera ok
+
+
