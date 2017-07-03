@@ -8,3 +8,5 @@ libqt5serialport5-dev
 
 Per compilare installare qt5-default, dare il comando qmake una sola volta dopodiché make per compilare i sorgenti
 L'eseguibile viene salvato nella stessa cartella
+
+sudo modprobe bcm2835-v4l2
