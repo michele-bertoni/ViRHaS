@@ -1,5 +1,6 @@
 libv4l-dev 
 qtwebsockets5-dbg
+libqt5websockets5-dev
 
 per info sulla webcam: v4l-utils
 v4l2-ctl --list-formats-ext
