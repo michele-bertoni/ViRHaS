@@ -1,0 +1,19 @@
+#ifndef SERVER_INFORMATION_H
+#define SERVER_INFORMATION_H
+
+#define WS_URL_PREFIX       "ws://"
+#define WS_URL_SEPARATOR    ":"
+#define WS_URL_SUFFIX       "/"
+
+//#define CONTROL_SERVER_IP   "127.0.0.1"
+#define CONTROL_SERVER_IP   "192.168.1.3"
+#define CONTROL_SERVER_PORT "9999"
+
+//#define CAMERA1_SERVER_IP   "127.0.0.1"
+#define CAMERA1_SERVER_IP   "192.168.1.3"
+#define CAMERA1_SERVER_PORT "9696"
+
+#define CAMERA2_SERVER_IP   "192.168.1.4"
+#define CAMERA2_SERVER_PORT "9696"
+
+#endif // SERVER_INFORMATION_H

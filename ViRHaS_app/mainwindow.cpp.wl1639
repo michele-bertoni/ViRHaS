@@ -1,0 +1,1073 @@
+#include "mainwindow.h"
+
+int sett_3D, sett_lcam, sett_rcam, sett_invcanv, sett_seplinecol, sett_seplinew;
+int sett_c1w, sett_c1h, sett_c2w, sett_c2h, sett_c1x, sett_c1y, sett_c2x, sett_c2y, sett_c1f2D, sett_c1f3D, sett_c2f2D, sett_c2f3D;
+int sett_w, sett_h, sett_fps;
+
+//controls
+//actions: 0 NULL, 1 ACCELERATOR, 2 BRAKE, 3 X_MOVEMENT, 4 Y_MOVEMENT, 5 L_ROTATION, 6 R_ROTATION
+int action_axisleftx=0;
+int action_axislefty=0;
+int action_axisrightx=0;
+int action_axisrighty=0;
+int action_buttona=0;
+int action_buttonb=0;
+int action_buttonx=0;
+int action_buttony=0;
+int action_buttonl1=0;
+int action_buttonl2=0;
+int action_buttonl3=0;
+int action_buttonr1=0;
+int action_buttonr2=0;
+int action_buttonr3=0;
+int action_buttoncenter=0;
+int action_buttonup=0;
+int action_buttondown=0;
+int action_buttonleft=0;
+int action_buttonright=0;
+int action_buttonselect=0;
+int action_buttonstart=0;
+int action_buttonguide=0;
+
+//actions
+double value_accelerator=0;
+double value_brake=0;
+double value_xmovement=0;
+double value_ymovement=0;
+double value_lrotation=0;
+double value_rrotation=0;
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    MainWindow::initLogos();
+    ui->stackedWidget->setCurrentIndex(0);
+    QTimer::singleShot(2000, this, SLOT(nextIndex()));  //2 seconds Polimi logo
+    QTimer::singleShot(4000, this, SLOT(nextIndex()));  //2 seconds AIRLab logo
+    QTimer::singleShot(4000, this, SLOT(initScreen()));
+    MainWindow::initButtons();
+    MainWindow::loadDefSetts();
+    MainWindow::confirmSettings();
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+
+}
+void MainWindow::centerAndResize(int width, int height){
+    QDesktopWidget desktop;
+    QSize newSize(width, height);
+    setGeometry(
+        QStyle::alignedRect(
+            Qt::LeftToRight,
+            Qt::AlignCenter,
+            newSize,
+            qApp->desktop()->availableGeometry()
+        )
+    );
+}
+void MainWindow::initLogos(){
+    QDesktopWidget desktop;
+    int height=desktop.geometry().height();
+    int width=desktop.geometry().width();
+    //Definition of QImages:
+    QImage logo_polimi(":/imageformats/logo_polimi.png");
+    QImage logo_AIRLab(":/imageformats/logo_airlab.gif");
+
+    this->resize(width,height);
+    MainWindow::centerAndResize(width, height);
+    ui->stackedWidget->resize(width, height);
+
+    //page_1
+    ui->polimi_logo->resize(width, height);
+    ui->polimi_logo->setPixmap(QPixmap::fromImage(logo_polimi.scaled(LOGO_POLIMI_W*width/DEF_SCREEN_W,LOGO_POLIMI_H*height/DEF_SCREEN_H,Qt::KeepAspectRatio,Qt::SmoothTransformation)));
+
+    //page_2
+    ui->AIRLab_logo->resize(width, height);
+    ui->AIRLab_logo->setPixmap(QPixmap::fromImage(logo_AIRLab.scaled(LOGO_AIRLAB_W*width/DEF_SCREEN_W,LOGO_AIRLAB_H*height/DEF_SCREEN_H,Qt::KeepAspectRatio,Qt::SmoothTransformation)));
+
+}
+
+void MainWindow::initScreen(){  //scales mainwindow.ui using screen size; screenconstants.h for constant definition
+    QDesktopWidget desktop;
+    int height=desktop.geometry().height();
+    int width=desktop.geometry().width();
+    int delta=height/200;
+    int xp=0;
+    int yp=0;
+
+    //Definition of QImages:
+    QImage logo_polimi(":/imageformats/logo_polimi.png");
+    QImage background_polimi(":/imageformats/background_polimi.jpg");
+    QImage background_dialoguewindow(":/imageformats/background_dialoguewindow.png");
+    QImage logo_AIRLab(":/imageformats/logo_airlab.gif");
+    QImage videosettings(":/imageformats/labels/videosettings.png");
+    QImage activecameras(":/imageformats/labels/activecameras.png");
+    QImage controlsettings(":/imageformats/labels/controlsettings.png");
+    QImage enable3D(":/imageformats/labels/enable3D.png");
+    QImage camres(":/imageformats/labels/camres.png");
+    QImage camfps(":/imageformats/labels/camfps.png");
+    QImage c1height(":/imageformats/labels/c1height.png");
+    QImage c1width(":/imageformats/labels/c1width.png");
+    QImage c1pos(":/imageformats/labels/c1pos.png");
+    QImage c1fit(":/imageformats/labels/c1fit.png");
+    QImage c2height(":/imageformats/labels/c2height.png");
+    QImage c2width(":/imageformats/labels/c2width.png");
+    QImage c2pos(":/imageformats/labels/c2pos.png");
+    QImage c2fit(":/imageformats/labels/c2fit.png");
+    QImage invertcanvas(":/imageformats/labels/invcanv.png");
+    QImage sepline(":/imageformats/labels/sepline.png");
+
+    //if(width==DEF_SCREEN_W && height==DEF_SCREEN_H)  //if screen is already 1920x1080, it won't be rescaled
+        //return;
+    //else
+    this->resize(width,height);
+    MainWindow::centerAndResize(width, height);
+    ui->stackedWidget->resize(width, height);
+
+    //page_1
+    ui->polimi_logo->resize(width, height);
+    ui->polimi_logo->setPixmap(QPixmap::fromImage(logo_polimi.scaled(LOGO_POLIMI_W*width/DEF_SCREEN_W,LOGO_POLIMI_H*height/DEF_SCREEN_H,Qt::KeepAspectRatio,Qt::SmoothTransformation)));
+
+    //page_2
+    ui->AIRLab_logo->resize(width, height);
+    ui->AIRLab_logo->setPixmap(QPixmap::fromImage(logo_AIRLab.scaled(LOGO_AIRLAB_W*width/DEF_SCREEN_W,LOGO_AIRLAB_H*height/DEF_SCREEN_H,Qt::KeepAspectRatio,Qt::SmoothTransformation)));
+
+    //page_3
+    ui->background_polimi->resize(width, height);
+    ui->background_polimi->setPixmap(QPixmap::fromImage(background_polimi.scaled(width*BACKG_POLIMI_W/DEF_SCREEN_W,height*BACKG_POLIMI_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->configuration_button->setGeometry(width*MAIN_BL_X0, height*MAIN_BL_Y0+height*MAIN_BUTTON_H, width*MAIN_BUTTON_W-delta, height*MAIN_BUTTON_H-delta);
+    ui->connect_button->setGeometry(width*MAIN_BL_X0, height*MAIN_BL_Y0, 2*width*MAIN_BUTTON_W, height/6-delta);
+    ui->credits_button->setGeometry(width*MAIN_BL_X0, height*MAIN_BL_Y0+2*height*MAIN_BUTTON_H, width*MAIN_BUTTON_W-delta, height*MAIN_BUTTON_H-delta);
+    ui->help_button->setGeometry(width*MAIN_BL_X0+width*MAIN_BUTTON_W, height*MAIN_BL_Y0+height*MAIN_BUTTON_H, width*MAIN_BUTTON_W-delta, height*MAIN_BUTTON_H-delta);
+    ui->exit_button->setGeometry(width*MAIN_BL_X0+width*MAIN_BUTTON_W, height*MAIN_BL_Y0+2*height*MAIN_BUTTON_H, width*MAIN_BUTTON_W-delta, height*MAIN_BUTTON_H-delta);
+    ui->version_label->setGeometry(MAIN_LABEL_X0*delta, height-MAIN_LABEL_H, MAIN_LABEL_W, MAIN_LABEL_H);
+    ui->lastGamepadKeyPressed->setVisible(false);
+
+    //page_4
+    ui->background_polimi_2->resize(width, height);
+    ui->background_polimi_2->setPixmap(QPixmap::fromImage(background_polimi.scaled(width*BACKG_POLIMI_W/DEF_SCREEN_W,height*BACKG_POLIMI_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->credits->resize(width, height);
+    ui->toMainMenu_button->setGeometry(width*TMM_BUTTON_X0, height*TMM_BUTTON_Y0, height*TMM_BUTTON_W, height*TMM_BUTTON_H);
+
+    //page 5
+    ui->background_polimi_3->resize(width, height);
+    ui->background_polimi_3->setPixmap(QPixmap::fromImage(background_polimi.scaled(width*BACKG_POLIMI_W/DEF_SCREEN_W,height*BACKG_POLIMI_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->sepsettings_line->setGeometry(width*SETT_SEP_W-delta, 0, 2*delta, height);
+    ui->settdialoguewindow_button->setGeometry(width*TMM_BUTTON_X0, height*TMM_BUTTON_Y0, height*TMM_BUTTON_W, height*TMM_BUTTON_H);
+    ui->preview_button->setGeometry((width-height*TMM_BUTTON_W)/2, height*TMM_BUTTON_Y0, height*TMM_BUTTON_W, height*TMM_BUTTON_H);
+    ui->settloadsavewindow_button->setGeometry(width-height*TMM_BUTTON_W, height*TMM_BUTTON_Y0, height*TMM_BUTTON_W, height*TMM_BUTTON_H);
+
+    xp=width*SETT_LABEL_X0;
+    yp=height*SETT_LABEL_Y0;
+    ui->videosettings_label->setGeometry(xp, yp, width*SETT_BLABEL_W, height*SETT_BLABEL_H);
+    ui->videosettings_label->setPixmap(QPixmap::fromImage(videosettings.scaled(width*TITLE_LABEL_W/DEF_SCREEN_W,height*TITLE_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->controlssettings_label->setGeometry(xp+width*SETT_SEP_W, yp, width*SETT_BLABEL_W, height*SETT_BLABEL_H);
+    ui->controlssettings_label->setPixmap(QPixmap::fromImage(controlsettings.scaled(width*TITLE_LABEL_W/DEF_SCREEN_W,height*TITLE_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    yp+=height*SETT_BLABEL_H+delta;
+    ui->enable3D_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->enable3D_label->setPixmap(QPixmap::fromImage(enable3D.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->y3D_radioButton->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->n3D_radioButton->setGeometry(xp+3*width*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->activecameras_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->activecameras_label->setPixmap(QPixmap::fromImage(activecameras.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->leftcamera_checkBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->rightcamera_checkBox->setGeometry(xp+3*width*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->camres_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->camres_label->setPixmap(QPixmap::fromImage(camres.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->camresw_spinBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->camresh_spinBox->setGeometry(xp+3*width*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->camfps_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->camfps_label->setPixmap(QPixmap::fromImage(camfps.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->camfpsM_pushButton->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    ui->camfps_spinBox->setGeometry(xp+width*5/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->camfpsP_pushButton->setGeometry(xp+width*7/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas1width_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas1width_label->setPixmap(QPixmap::fromImage(c1width.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas1widthM_pushButton->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    ui->canvas1width_spinBox->setGeometry(xp+width*5/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->canvas1widthP_pushButton->setGeometry(xp+width*7/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas1height_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas1height_label->setPixmap(QPixmap::fromImage(c1height.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas1heightM_pushButton->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    ui->canvas1height_spinBox->setGeometry(xp+width*5/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->canvas1heightP_pushButton->setGeometry(xp+width*7/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas1pos_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas1pos_label->setPixmap(QPixmap::fromImage(c1pos.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas1posx_spinBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->canvas1posy_spinBox->setGeometry(xp+3*width*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas1fit_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas1fit_label->setPixmap(QPixmap::fromImage(c1fit.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas1fit2D_comboBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas1fit3D_comboBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas1fit3D_comboBox->setVisible(false);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas2width_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas2width_label->setPixmap(QPixmap::fromImage(c2width.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas2widthM_pushButton->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    ui->canvas2width_spinBox->setGeometry(xp+width*5/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->canvas2widthP_pushButton->setGeometry(xp+width*7/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas2height_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas2height_label->setPixmap(QPixmap::fromImage(c2height.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas2heightM_pushButton->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    ui->canvas2height_spinBox->setGeometry(xp+width*5/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->canvas2heightP_pushButton->setGeometry(xp+width*7/2*SETT_SLABEL_W, yp, width*SETT_SLABEL_W/2, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas2pos_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas2pos_label->setPixmap(QPixmap::fromImage(c2pos.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas2posx_spinBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->canvas2posy_spinBox->setGeometry(xp+3*width*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->canvas2fit_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas2fit_label->setPixmap(QPixmap::fromImage(c2fit.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->canvas2fit2D_comboBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas2fit3D_comboBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->canvas2fit3D_comboBox->setVisible(false);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->invertcanvas_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->invertcanvas_label->setPixmap(QPixmap::fromImage(invertcanvas.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->invertcanvasy_radioButton->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->invertcanvasn_radioButton->setGeometry(xp+3*width*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+    ui->sepline_label->setGeometry(xp, yp, width*SETT_MLABEL_W, height*SETT_MLABEL_H);
+    ui->sepline_label->setPixmap(QPixmap::fromImage(sepline.scaled(width*SUBT_LABEL_W/DEF_SCREEN_W,height*SUBT_LABEL_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->sepline_comboBox->setGeometry(xp+width*SETT_MLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    ui->sepline_spinBox->setGeometry(xp+3*width*SETT_SLABEL_W, yp, width*SETT_SLABEL_W, height*SETT_SLABEL_H);
+    yp+=height*SETT_MLABEL_H+delta;
+
+    //page 5 dialogue windows
+    ui->sdw_background->setGeometry(0, 0, width*BACKG_DW_W/DEF_SCREEN_W, height*BACKG_DW_H/DEF_SCREEN_H);
+    ui->sdw_background->setPixmap(QPixmap::fromImage(background_dialoguewindow.scaled(width*BACKG_DW_W/DEF_SCREEN_W,height*BACKG_DW_H/DEF_SCREEN_H,Qt::KeepAspectRatioByExpanding,Qt::SmoothTransformation)));
+    ui->sdw_background->setVisible(false);
+    xp=floor((width-2*width*DW_BUTTON_W-delta)/2);
+    yp=floor((height-height*DW_BUTTON_H*3/2-delta)/2);
+    ui->sdwX_pushButton->setGeometry(xp+2*width*DW_BUTTON_W+delta-height*DW_BUTTON_H/2, yp, height*DW_BUTTON_H/2, height*DW_BUTTON_H/2);
+    ui->sdwX_pushButton->setVisible(false);
+    yp+=delta+height*DW_BUTTON_H/2;
+    ui->sdwdiscard_pushButton->setGeometry(xp, yp, width*DW_BUTTON_W, height*DW_BUTTON_H);
+    ui->sdwdiscard_pushButton->setVisible(false);
+    ui->sdwload_pushButton->setGeometry(xp, yp, width*DW_BUTTON_W, height*DW_BUTTON_H);
+    ui->sdwload_pushButton->setVisible(false);
+    ui->sdwconfirm_pushButton->setGeometry(xp+delta+width*DW_BUTTON_W, yp, width*DW_BUTTON_W, height*DW_BUTTON_H);
+    ui->sdwconfirm_pushButton->setVisible(false);
+    ui->sdwsave_pushButton->setGeometry(xp+delta+width*DW_BUTTON_W, yp, width*DW_BUTTON_W, height*DW_BUTTON_H);
+    ui->sdwsave_pushButton->setVisible(false);
+}
+
+void MainWindow::nextIndex(){
+    ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex()+1);
+}
+void MainWindow::prevIndex(){
+    ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex()-1);
+}
+void MainWindow::quit(){
+    QCoreApplication::quit();
+}
+void MainWindow::helpButton(){
+    QDesktopServices::openUrl(QUrl("http://airwiki.ws.dei.polimi.it/index.php/ViRHaS", QUrl::TolerantMode));
+}
+void MainWindow::creditsButton(){
+    ui->stackedWidget->setCurrentIndex(3);
+}
+void MainWindow::toMainMenu(){
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::configurationButton(){
+    ui->stackedWidget->setCurrentIndex(4);
+}
+/*void MainWindow::deviceSettings(){
+    #ifdef Q_OS_WIN
+    QObject *parent=0;
+    QString program = "c:\\windows\\system32\\control.exe";
+    QStringList arguments;
+    arguments << "";
+    QProcess *myProcess = new QProcess(parent);
+    myProcess->start(program, arguments);
+    return;
+    #endif
+    QCoreApplication::quit();
+
+}*/
+void MainWindow::enable3D(){
+    //ui->y3D_radioButton->setText("1");
+    //ui->n3D_radioButton->setText("0");
+    ui->leftcamera_checkBox->setChecked(true);
+    ui->leftcamera_checkBox->setEnabled(false);
+    ui->rightcamera_checkBox->setChecked(true);
+    ui->rightcamera_checkBox->setEnabled(false);
+    ui->canvas1width_spinBox->setEnabled(false);
+    ui->canvas1widthM_pushButton->setEnabled(false);
+    ui->canvas1widthP_pushButton->setEnabled(false);
+    ui->canvas1width_spinBox->setValue(ui->canvas1width_spinBox->maximum()/2);
+    ui->canvas1height_spinBox->setEnabled(false);
+    ui->canvas1heightM_pushButton->setEnabled(false);
+    ui->canvas1heightP_pushButton->setEnabled(false);
+    ui->canvas1height_spinBox->setValue(ui->canvas1height_spinBox->maximum());
+    ui->canvas1posx_spinBox->setEnabled(false);
+    ui->canvas1posy_spinBox->setEnabled(false);
+    ui->canvas1posx_spinBox->setValue(0);
+    ui->canvas1posy_spinBox->setValue(0);
+    ui->canvas1fit3D_comboBox->setVisible(true);
+    ui->canvas1fit2D_comboBox->setVisible(false);
+    ui->canvas1fit3D_comboBox->setEnabled(true);
+    ui->canvas1fit2D_comboBox->setEnabled(false);
+    ui->canvas2width_spinBox->setEnabled(false);
+    ui->canvas2widthM_pushButton->setEnabled(false);
+    ui->canvas2widthP_pushButton->setEnabled(false);
+    ui->canvas2width_spinBox->setValue(ui->canvas2width_spinBox->maximum()/2);
+    ui->canvas2height_spinBox->setEnabled(false);
+    ui->canvas2heightM_pushButton->setEnabled(false);
+    ui->canvas2heightP_pushButton->setEnabled(false);
+    ui->canvas2height_spinBox->setValue(ui->canvas1height_spinBox->maximum());
+    ui->canvas2posx_spinBox->setEnabled(false);
+    ui->canvas2posy_spinBox->setEnabled(false);
+    ui->canvas2posx_spinBox->setValue(ui->canvas2posx_spinBox->maximum()/2);
+    ui->canvas2posy_spinBox->setValue(0);
+    ui->canvas2fit3D_comboBox->setVisible(true);
+    ui->canvas2fit2D_comboBox->setVisible(false);
+    ui->canvas2fit3D_comboBox->setEnabled(true);
+    ui->canvas2fit2D_comboBox->setEnabled(false);
+    ui->invertcanvasn_radioButton->setChecked(true);
+    ui->invertcanvasy_radioButton->setEnabled(true);
+    ui->invertcanvasn_radioButton->setEnabled(true);
+    ui->sepline_comboBox->setCurrentIndex(0);
+    ui->sepline_comboBox->setEnabled(true);
+    ui->sepline_spinBox->setRange(0, 0);
+    ui->sepline_spinBox->setEnabled(false);
+
+}
+void MainWindow::disable3D(){
+    //ui->y3D_radioButton->setText("0");
+    //ui->n3D_radioButton->setText("1");
+    ui->leftcamera_checkBox->setChecked(true);
+    ui->leftcamera_checkBox->setEnabled(true);
+    ui->rightcamera_checkBox->setChecked(false);
+    ui->rightcamera_checkBox->setEnabled(true);
+    ui->canvas1width_spinBox->setEnabled(true);
+    ui->canvas1widthM_pushButton->setEnabled(true);
+    ui->canvas1widthP_pushButton->setEnabled(true);
+    ui->canvas1width_spinBox->setValue(ui->canvas1width_spinBox->maximum());
+    ui->canvas1height_spinBox->setEnabled(true);
+    ui->canvas1heightM_pushButton->setEnabled(true);
+    ui->canvas1heightP_pushButton->setEnabled(true);
+    ui->canvas1height_spinBox->setValue(ui->canvas1height_spinBox->maximum());
+    ui->canvas1posx_spinBox->setEnabled(true);
+    ui->canvas1posy_spinBox->setEnabled(true);
+    ui->canvas1posx_spinBox->setValue(0);
+    ui->canvas1posy_spinBox->setValue(0);
+    ui->canvas1fit3D_comboBox->setVisible(false);
+    ui->canvas1fit2D_comboBox->setVisible(true);
+    ui->canvas1fit2D_comboBox->setEnabled(true);
+    ui->canvas1fit3D_comboBox->setEnabled(false);
+    ui->canvas2width_spinBox->setEnabled(false);
+    ui->canvas2widthM_pushButton->setEnabled(false);
+    ui->canvas2widthP_pushButton->setEnabled(false);
+    ui->canvas2width_spinBox->setValue(ui->canvas2width_spinBox->minimum());
+    ui->canvas2height_spinBox->setEnabled(false);
+    ui->canvas2heightM_pushButton->setEnabled(false);
+    ui->canvas2heightP_pushButton->setEnabled(false);
+    ui->canvas2height_spinBox->setValue(ui->canvas2height_spinBox->minimum());
+    ui->canvas2posx_spinBox->setEnabled(false);
+    ui->canvas2posy_spinBox->setEnabled(false);
+    ui->canvas2posx_spinBox->setValue(0);
+    ui->canvas2posy_spinBox->setValue(0);
+    ui->canvas2fit3D_comboBox->setVisible(false);
+    ui->canvas2fit2D_comboBox->setVisible(true);
+    ui->canvas2fit2D_comboBox->setEnabled(false);
+    ui->canvas2fit3D_comboBox->setEnabled(false);
+    ui->invertcanvasn_radioButton->setChecked(true);
+    ui->invertcanvasy_radioButton->setEnabled(false);
+    ui->invertcanvasn_radioButton->setEnabled(false);
+    ui->sepline_comboBox->setCurrentIndex(0);
+    ui->sepline_comboBox->setEnabled(false);
+    ui->sepline_spinBox->setRange(0, 0);
+    ui->sepline_spinBox->setEnabled(false);
+}
+void MainWindow::settLeftCamera(){
+    if(ui->leftcamera_checkBox->isChecked()){
+        //ui->leftcamera_checkBox->setText("1");
+        ui->canvas1width_spinBox->setEnabled(true);
+        ui->canvas1widthM_pushButton->setEnabled(true);
+        ui->canvas1widthP_pushButton->setEnabled(true);
+        ui->canvas1height_spinBox->setEnabled(true);
+        ui->canvas1heightM_pushButton->setEnabled(true);
+        ui->canvas1heightP_pushButton->setEnabled(true);
+        ui->canvas1posx_spinBox->setEnabled(true);
+        ui->canvas1posy_spinBox->setEnabled(true);
+        ui->canvas1fit2D_comboBox->setEnabled(true);
+        if(ui->rightcamera_checkBox->isChecked()){            
+            ui->canvas2width_spinBox->setEnabled(true);
+            ui->canvas2widthM_pushButton->setEnabled(true);
+            ui->canvas2widthP_pushButton->setEnabled(true);
+            ui->canvas2height_spinBox->setEnabled(true);
+            ui->canvas2heightM_pushButton->setEnabled(true);
+            ui->canvas2heightP_pushButton->setEnabled(true);
+            ui->canvas2posx_spinBox->setEnabled(true);
+            ui->canvas2posy_spinBox->setEnabled(true);
+            ui->canvas2fit2D_comboBox->setEnabled(true);
+            ui->invertcanvasy_radioButton->setEnabled(true);
+            ui->invertcanvasn_radioButton->setEnabled(true);
+        }
+    }
+    else{
+        ui->rightcamera_checkBox->setChecked(true);
+        //ui->leftcamera_checkBox->setText("0");
+        ui->canvas1width_spinBox->setEnabled(true);
+        ui->canvas1widthM_pushButton->setEnabled(true);
+        ui->canvas1widthP_pushButton->setEnabled(true);
+        ui->canvas1height_spinBox->setEnabled(true);
+        ui->canvas1heightM_pushButton->setEnabled(true);
+        ui->canvas1heightP_pushButton->setEnabled(true);
+        ui->canvas1posx_spinBox->setEnabled(true);
+        ui->canvas1posy_spinBox->setEnabled(true);
+        ui->canvas1fit2D_comboBox->setEnabled(true);
+        ui->invertcanvasy_radioButton->setChecked(true);
+        ui->invertcanvasy_radioButton->setEnabled(false);
+        ui->invertcanvasn_radioButton->setEnabled(false);
+    }
+}
+void MainWindow::settRightCamera(){
+    if(ui->rightcamera_checkBox->isChecked()){
+        //ui->rightcamera_checkBox->setText("1");
+        ui->canvas1width_spinBox->setEnabled(true);
+        ui->canvas1widthM_pushButton->setEnabled(true);
+        ui->canvas1widthP_pushButton->setEnabled(true);
+        ui->canvas1height_spinBox->setEnabled(true);
+        ui->canvas1heightM_pushButton->setEnabled(true);
+        ui->canvas1heightP_pushButton->setEnabled(true);
+        ui->canvas1posx_spinBox->setEnabled(true);
+        ui->canvas1posy_spinBox->setEnabled(true);
+        ui->canvas1fit2D_comboBox->setEnabled(true);
+        if(ui->leftcamera_checkBox->isChecked()){
+            ui->canvas2width_spinBox->setEnabled(true);
+            ui->canvas2widthM_pushButton->setEnabled(true);
+            ui->canvas2widthP_pushButton->setEnabled(true);
+            ui->canvas2height_spinBox->setEnabled(true);
+            ui->canvas2heightM_pushButton->setEnabled(true);
+            ui->canvas2heightP_pushButton->setEnabled(true);
+            ui->canvas2posx_spinBox->setEnabled(true);
+            ui->canvas2posy_spinBox->setEnabled(true);
+            ui->canvas2fit2D_comboBox->setEnabled(true);
+            ui->invertcanvasy_radioButton->setEnabled(true);
+            ui->invertcanvasn_radioButton->setEnabled(true);
+        }
+    }
+    else{
+        ui->leftcamera_checkBox->setChecked(true);
+        //ui->rightcamera_checkBox->setText("0");        
+        ui->canvas1width_spinBox->setEnabled(true);
+        ui->canvas1widthM_pushButton->setEnabled(true);
+        ui->canvas1widthP_pushButton->setEnabled(true);
+        ui->canvas1height_spinBox->setEnabled(true);
+        ui->canvas1heightM_pushButton->setEnabled(true);
+        ui->canvas1heightP_pushButton->setEnabled(true);
+        ui->canvas1posx_spinBox->setEnabled(true);
+        ui->canvas1posy_spinBox->setEnabled(true);
+        ui->canvas1fit2D_comboBox->setEnabled(true);
+        ui->invertcanvasn_radioButton->setChecked(true);
+        ui->invertcanvasy_radioButton->setEnabled(false);
+        ui->invertcanvasn_radioButton->setEnabled(false);
+    }
+}
+void MainWindow::settCamFpsM(){
+    ui->camfps_spinBox->setValue(ui->camfps_spinBox->value()-1);
+}
+void MainWindow::settCamFpsP(){
+    ui->camfps_spinBox->setValue(ui->camfps_spinBox->value()+1);
+}
+void MainWindow::settC1WM(){
+    ui->canvas1width_spinBox->setValue(ui->canvas1width_spinBox->value()-DEF_SCREEN_WR);
+}
+void MainWindow::settC1WP(){
+    ui->canvas1width_spinBox->setValue(ui->canvas1width_spinBox->value()+DEF_SCREEN_WR);
+}
+void MainWindow::settC1HM(){
+    ui->canvas1height_spinBox->setValue(ui->canvas1height_spinBox->value()-DEF_SCREEN_HR);
+}
+void MainWindow::settC1HP(){
+    ui->canvas1height_spinBox->setValue(ui->canvas1height_spinBox->value()+DEF_SCREEN_HR);
+}
+void MainWindow::settC2WM(){
+    ui->canvas2width_spinBox->setValue(ui->canvas2width_spinBox->value()-DEF_SCREEN_WR);
+}
+void MainWindow::settC2WP(){
+    ui->canvas2width_spinBox->setValue(ui->canvas2width_spinBox->value()+DEF_SCREEN_WR);
+}
+void MainWindow::settC2HM(){
+    ui->canvas2height_spinBox->setValue(ui->canvas2height_spinBox->value()-DEF_SCREEN_HR);
+}
+void MainWindow::settC2HP(){
+    ui->canvas2height_spinBox->setValue(ui->canvas2height_spinBox->value()+DEF_SCREEN_HR);
+}
+void MainWindow::settCamResW(){
+    ui->camresw_spinBox->setValue(ui->camresw_spinBox->value()-ui->camresw_spinBox->value()%DEF_SCREEN_WR);
+    ui->camresh_spinBox->setValue(ui->camresw_spinBox->value()*DEF_SCREEN_HR/DEF_SCREEN_WR);
+}
+void MainWindow::settCamResH(){
+    ui->camresh_spinBox->setValue(ui->camresh_spinBox->value()-ui->camresh_spinBox->value()%DEF_SCREEN_HR);
+    ui->camresw_spinBox->setValue(ui->camresh_spinBox->value()*DEF_SCREEN_WR/DEF_SCREEN_HR);
+}
+void MainWindow::settC1PosX(){
+    ui->canvas1posx_spinBox->setValue(ui->canvas1posx_spinBox->value()-ui->canvas1posx_spinBox->value()%DEF_SCREEN_WR);
+}
+void MainWindow::settC1PosY(){
+    ui->canvas1posy_spinBox->setValue(ui->canvas1posy_spinBox->value()-ui->canvas1posy_spinBox->value()%DEF_SCREEN_HR);
+}
+void MainWindow::settC2PosX(){
+    ui->canvas2posx_spinBox->setValue(ui->canvas2posx_spinBox->value()-ui->canvas2posx_spinBox->value()%DEF_SCREEN_WR);
+}
+void MainWindow::settC2PosY(){
+    ui->canvas2posy_spinBox->setValue(ui->canvas2posy_spinBox->value()-ui->canvas2posy_spinBox->value()%DEF_SCREEN_HR);
+}
+void MainWindow::settSepLineComboBox(int color){
+    //0=No, 1=Black #000000, 2=White #ffffff, 3=Grey #808080, 4=Red #ff0000, 5=Green #00ff00, 6=Blue #0000ff, 7=Yellow #ffff00, 8=Magenta #ff00ff, 9=Cyan #00ffff
+    if(!color){
+        ui->sepline_spinBox->setRange(0, 0);
+        ui->sepline_spinBox->setEnabled(false);
+    }
+    else{
+        ui->sepline_spinBox->setRange(1, 20);
+        ui->sepline_spinBox->setValue(1);
+        ui->sepline_spinBox->setEnabled(true);
+    }
+}
+void MainWindow::settDialogueWindow(){
+    ui->sdw_background->setVisible(true);
+    ui->sdwX_pushButton->setVisible(true);
+    ui->sdwdiscard_pushButton->setVisible(true);
+    ui->sdwconfirm_pushButton->setVisible(true);
+}
+void MainWindow::settLoadSaveWindow(){
+    ui->sdw_background->setVisible(true);
+    ui->sdwX_pushButton->setVisible(true);
+    ui->sdwload_pushButton->setVisible(true);
+    ui->sdwsave_pushButton->setVisible(true);
+}
+
+void MainWindow::settCloseDW(){
+    ui->sdw_background->setVisible(false);
+    ui->sdwX_pushButton->setVisible(false);
+    ui->sdwdiscard_pushButton->setVisible(false);
+    ui->sdwconfirm_pushButton->setVisible(false);
+    ui->sdwload_pushButton->setVisible(false);
+    ui->sdwsave_pushButton->setVisible(false);
+}
+void MainWindow::initSettings(){    //initialize settings boxes with stored data
+    //Video Settings
+    //General
+    if(sett_3D){
+        MainWindow::enable3D();
+        ui->y3D_radioButton->setChecked(1);
+    }
+    else{
+        MainWindow::disable3D();
+        ui->n3D_radioButton->setChecked(1);
+    }
+    ui->leftcamera_checkBox->setChecked(sett_lcam);
+    MainWindow::settLeftCamera();
+    ui->rightcamera_checkBox->setChecked(sett_rcam);
+    MainWindow::settRightCamera();
+    if(sett_invcanv)
+        ui->invertcanvasy_radioButton->setChecked(1);
+    else
+        ui->invertcanvasn_radioButton->setChecked(1);
+    ui->sepline_comboBox->setCurrentIndex(sett_seplinecol);
+    if(sett_seplinecol){
+        ui->sepline_spinBox->setRange(1, 20);
+        ui->sepline_spinBox->setEnabled(1);
+    }
+    else{
+        ui->sepline_spinBox->setRange(0, 0);
+        ui->sepline_spinBox->setEnabled(0);
+    }
+    ui->sepline_spinBox->setValue(sett_seplinew);
+    //Canvas
+    ui->canvas1width_spinBox->setValue(sett_c1w);
+    ui->canvas1height_spinBox->setValue(sett_c1h);
+    ui->canvas2width_spinBox->setValue(sett_c2w);
+    ui->canvas2height_spinBox->setValue(sett_c2h);
+    ui->canvas1posx_spinBox->setValue(sett_c1x);
+    ui->canvas1posy_spinBox->setValue(sett_c1y);
+    ui->canvas2posx_spinBox->setValue(sett_c2x);
+    ui->canvas2posy_spinBox->setValue(sett_c2y);
+    ui->canvas1fit2D_comboBox->setCurrentIndex(sett_c1f2D);
+    ui->canvas1fit3D_comboBox->setCurrentIndex(sett_c1f3D);
+    ui->canvas2fit2D_comboBox->setCurrentIndex(sett_c2f2D);
+    ui->canvas2fit3D_comboBox->setCurrentIndex(sett_c2f3D);
+    //Camera
+    ui->camresw_spinBox->setValue(sett_w);
+    ui->camresh_spinBox->setValue(sett_h);
+    ui->camfps_spinBox->setValue(sett_fps);
+    MainWindow::settCloseDW();
+}
+void MainWindow::confirmSettings(){ //stores data from settings boxes
+    //Video Settings
+    //General
+    sett_3D=ui->y3D_radioButton->isChecked();
+    sett_lcam=ui->leftcamera_checkBox->isChecked();
+    sett_rcam=ui->rightcamera_checkBox->isChecked();
+    sett_invcanv=ui->invertcanvasy_radioButton->isChecked();
+    sett_seplinecol=ui->sepline_comboBox->currentIndex();
+    sett_seplinew=ui->sepline_spinBox->value();
+    //Canvas
+    sett_c1w=ui->canvas1width_spinBox->value();
+    sett_c1h=ui->canvas1height_spinBox->value();
+    sett_c2w=ui->canvas2width_spinBox->value();
+    sett_c2h=ui->canvas2height_spinBox->value();
+    sett_c1x=ui->canvas1posx_spinBox->value();
+    sett_c1y=ui->canvas1posy_spinBox->value();
+    sett_c2x=ui->canvas2posx_spinBox->value();
+    sett_c2y=ui->canvas2posy_spinBox->value();
+    sett_c1f2D=ui->canvas1fit2D_comboBox->currentIndex();
+    sett_c1f3D=ui->canvas1fit3D_comboBox->currentIndex();
+    sett_c2f2D=ui->canvas2fit2D_comboBox->currentIndex();
+    sett_c2f3D=ui->canvas2fit3D_comboBox->currentIndex();
+    //Camera
+    sett_w=ui->camresw_spinBox->value();
+    sett_h=ui->camresh_spinBox->value();
+    sett_fps=ui->camfps_spinBox->value();
+
+    MainWindow::settCloseDW();
+}
+void MainWindow::loadDefSetts(){    //initialize settings boxes with default data
+    QDesktopWidget desktop;
+    QCoreApplication::setOrganizationName("AIRLab Polimi"); //Organization name
+    QCoreApplication::setOrganizationDomain("airlab.deib.polimi.it");   //Website
+    QCoreApplication::setApplicationName("ViRHaS"); //Project name
+    QSettings settings; //store settings
+    if(!settings.value("controlflag").toBool()){
+        MainWindow::saveDefSetts();
+        return;
+    }
+    settings.beginGroup("VideoSettings");
+    settings.beginGroup("General");
+    if(settings.value("3D").toBool()){
+        MainWindow::enable3D();
+        ui->y3D_radioButton->setChecked(1);
+    }
+    else{
+        MainWindow::disable3D();
+        ui->n3D_radioButton->setChecked(1);
+    }
+    ui->y3D_radioButton->setChecked(settings.value("3D").toBool());
+    ui->leftcamera_checkBox->setChecked(settings.value("lcam").toBool());
+    MainWindow::settLeftCamera();
+    ui->rightcamera_checkBox->setChecked(settings.value("rcam").toBool());
+    MainWindow::settRightCamera();
+    if(settings.value("invcanv").toBool())
+        ui->invertcanvasy_radioButton->setChecked(1);
+    else
+        ui->invertcanvasn_radioButton->setChecked(1);
+    ui->sepline_comboBox->setCurrentIndex(settings.value("seplinecol").toInt());
+    ui->sepline_spinBox->setValue(settings.value("seplinew").toInt());
+    settings.endGroup();
+    settings.beginGroup("Canvas");
+    ui->canvas1width_spinBox->setValue(settings.value("c1w").toInt());
+    ui->canvas1height_spinBox->setValue(settings.value("c1h").toInt());
+    ui->canvas2width_spinBox->setValue(settings.value("c2w").toInt());
+    ui->canvas2height_spinBox->setValue(settings.value("c2h").toInt());
+    ui->canvas1posx_spinBox->setValue(settings.value("c1x").toInt());
+    ui->canvas1posy_spinBox->setValue(settings.value("c1y").toInt());
+    ui->canvas2posx_spinBox->setValue(settings.value("c2x").toInt());
+    ui->canvas2posy_spinBox->setValue(settings.value("c2y").toInt());
+    ui->canvas1fit2D_comboBox->setCurrentIndex(settings.value("c1f2D").toInt());
+    ui->canvas1fit3D_comboBox->setCurrentIndex(settings.value("c1f3D").toInt());
+    ui->canvas2fit2D_comboBox->setCurrentIndex(settings.value("c2f2D").toInt());
+    ui->canvas2fit3D_comboBox->setCurrentIndex(settings.value("c2f3D").toInt());
+    settings.endGroup();
+    settings.beginGroup("Camera");
+    ui->camresw_spinBox->setValue(settings.value("w").toInt());
+    ui->camresh_spinBox->setValue(settings.value("h").toInt());
+    ui->camfps_spinBox->setValue(settings.value("fps").toInt());
+    settings.endGroup();
+    settings.endGroup();
+    MainWindow::settCloseDW();
+}
+
+void MainWindow::saveDefSetts(){    //overwrite default data with settings boxes content
+    QDesktopWidget desktop;
+    QCoreApplication::setOrganizationName("AIRLab Polimi"); //Organization name
+    QCoreApplication::setOrganizationDomain("airlab.deib.polimi.it");   //Website
+    QCoreApplication::setApplicationName("ViRHaS"); //Project name
+    QSettings settings; //store settings
+
+    settings.setValue("controlflag", QVariant(false));
+
+    settings.beginGroup("VideoSettings");
+    settings.beginGroup("General");
+    settings.setValue("3D", QVariant(ui->y3D_radioButton->isChecked()));
+    settings.setValue("lcam", QVariant(ui->leftcamera_checkBox->isChecked()));
+    settings.setValue("rcam", QVariant(ui->rightcamera_checkBox->isChecked()));
+    settings.setValue("invcanv", QVariant(ui->invertcanvasy_radioButton->isChecked()));
+    settings.setValue("seplinecol", QVariant(ui->sepline_comboBox->currentIndex()));
+    settings.setValue("seplinew", QVariant(ui->sepline_spinBox->value()));
+    settings.endGroup();
+    settings.beginGroup("Canvas");
+    settings.setValue("c1w", QVariant(ui->canvas1width_spinBox->value()));
+    settings.setValue("c1h", QVariant(ui->canvas1height_spinBox->value()));
+    settings.setValue("c2w", QVariant(ui->canvas2width_spinBox->value()));
+    settings.setValue("c2h", QVariant(ui->canvas2height_spinBox->value()));
+    settings.setValue("c1x", QVariant(ui->canvas1posx_spinBox->value()));
+    settings.setValue("c1y", QVariant(ui->canvas1posy_spinBox->value()));
+    settings.setValue("c2x", QVariant(ui->canvas2posx_spinBox->value()));
+    settings.setValue("c2y", QVariant(ui->canvas2posy_spinBox->value()));
+    settings.setValue("c1f2D", QVariant(ui->canvas1fit2D_comboBox->currentIndex()));
+    settings.setValue("c1f3D", QVariant(ui->canvas1fit3D_comboBox->currentIndex()));
+    settings.setValue("c2f2D", QVariant(ui->canvas2fit2D_comboBox->currentIndex()));
+    settings.setValue("c2f3D", QVariant(ui->canvas2fit3D_comboBox->currentIndex()));
+    settings.endGroup();
+    settings.beginGroup("Camera");
+    settings.setValue("w", QVariant(ui->camresw_spinBox->value()));
+    settings.setValue("h", QVariant(ui->camresh_spinBox->value()));
+    settings.setValue("fps", QVariant(ui->camfps_spinBox->value()));
+    settings.endGroup();
+    settings.endGroup();
+
+    settings.setValue("controlflag", QVariant(true));
+
+    settings.sync();
+    MainWindow::settCloseDW();
+}
+
+
+void MainWindow::initButtons(){
+    QDesktopWidget desktop;
+    int height=desktop.geometry().height();
+    int width=desktop.geometry().width();
+    //page 3
+    connect(ui->configuration_button, SIGNAL(released()), this, SLOT(configurationButton()));
+    connect(ui->exit_button, SIGNAL(released()), this, SLOT(quit()));
+    connect(ui->help_button, SIGNAL(released()), this, SLOT(helpButton()));
+    connect(ui->credits_button, SIGNAL(released()), this, SLOT(creditsButton()));
+
+    //page 4
+    connect(ui->toMainMenu_button, SIGNAL(released()), this, SLOT(toMainMenu()));
+
+    //page 5
+    connect(ui->settdialoguewindow_button, SIGNAL(released()), this, SLOT(settDialogueWindow()));
+    connect(ui->settloadsavewindow_button, SIGNAL(released()), this, SLOT(settLoadSaveWindow()));
+    connect(ui->preview_button, SIGNAL(released()), this, SLOT(preview()));
+    connect(ui->y3D_radioButton, SIGNAL(released()), this, SLOT(enable3D()));
+    connect(ui->n3D_radioButton, SIGNAL(released()), this, SLOT(disable3D()));
+    connect(ui->leftcamera_checkBox, SIGNAL(released()), this, SLOT(settLeftCamera()));
+    connect(ui->rightcamera_checkBox, SIGNAL(released()), this, SLOT(settRightCamera()));
+    ui->canvas1width_spinBox->setRange(0, width);
+    ui->canvas1height_spinBox->setRange(0, height);
+    ui->canvas1width_spinBox->setValue(width);
+    ui->canvas1height_spinBox->setValue(height);
+    ui->canvas1posx_spinBox->setRange(0, width);
+    ui->canvas1posy_spinBox->setRange(0, height);
+    ui->canvas1posx_spinBox->setValue(0);
+    ui->canvas1posy_spinBox->setValue(0);
+    ui->canvas2width_spinBox->setRange(0, width);
+    ui->canvas2height_spinBox->setRange(0, height);
+    ui->canvas2width_spinBox->setValue(0);
+    ui->canvas2height_spinBox->setValue(0);
+    ui->canvas2posx_spinBox->setRange(0, width);
+    ui->canvas2posy_spinBox->setRange(0, height);
+    ui->canvas2posx_spinBox->setValue(0);
+    ui->canvas2posy_spinBox->setValue(0);
+    ui->sepline_spinBox->setRange(0, 0);
+    #ifdef Q_OS_ANDROID
+    connect(ui->canvas1width_spinBox, SIGNAL(editingFinished()), QGuiApplication::inputMethod(), SLOT(hide()));
+    connect(ui->canvas1height_spinBox, SIGNAL(editingFinished()), QGuiApplication::inputMethod(), SLOT(hide()));
+    connect(ui->canvas2width_spinBox, SIGNAL(editingFinished()), QGuiApplication::inputMethod(), SLOT(hide()));
+    connect(ui->canvas2height_spinBox, SIGNAL(editingFinished()), QGuiApplication::inputMethod(), SLOT(hide()));
+    connect(ui->camresw_spinBox, SIGNAL(editingFinished()), QGuiApplication::inputMethod(), SLOT(hide()));
+    connect(ui->camresh_spinBox, SIGNAL(editingFinished()), QGuiApplication::inputMethod(), SLOT(hide()));
+    connect(ui->sepline_spinBox, SIGNAL(editingFinished()), QGuiApplication::inputMethod(), SLOT(hide()));
+    #endif
+    connect(ui->camresw_spinBox, SIGNAL(editingFinished()), this, SLOT(settCamResW()));
+    connect(ui->camresh_spinBox, SIGNAL(editingFinished()), this, SLOT(settCamResH()));
+    connect(ui->camfpsM_pushButton, SIGNAL(released()), this, SLOT(settCamFpsM()));
+    connect(ui->camfpsP_pushButton, SIGNAL(released()), this, SLOT(settCamFpsP()));
+    connect(ui->canvas1widthM_pushButton, SIGNAL(released()), this, SLOT(settC1WM()));
+    connect(ui->canvas1widthP_pushButton, SIGNAL(released()), this, SLOT(settC1WP()));
+    connect(ui->canvas1heightM_pushButton, SIGNAL(released()), this, SLOT(settC1HM()));
+    connect(ui->canvas1heightP_pushButton, SIGNAL(released()), this, SLOT(settC1HP()));
+    connect(ui->canvas1posx_spinBox, SIGNAL(editingFinished()), this, SLOT(settC1PosX()));
+    connect(ui->canvas1posy_spinBox, SIGNAL(editingFinished()), this, SLOT(settC1PosY()));
+    connect(ui->canvas2widthM_pushButton, SIGNAL(released()), this, SLOT(settC2WM()));
+    connect(ui->canvas2widthP_pushButton, SIGNAL(released()), this, SLOT(settC2WP()));
+    connect(ui->canvas2heightM_pushButton, SIGNAL(released()), this, SLOT(settC2HM()));
+    connect(ui->canvas2heightP_pushButton, SIGNAL(released()), this, SLOT(settC2HP()));
+    connect(ui->canvas2posx_spinBox, SIGNAL(editingFinished()), this, SLOT(settC2PosX()));
+    connect(ui->canvas2posy_spinBox, SIGNAL(editingFinished()), this, SLOT(settC2PosY()));
+    connect(ui->sepline_comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(settSepLineComboBox(int)));
+    connect(ui->sdwX_pushButton, SIGNAL(released()), this, SLOT(settCloseDW()));
+    connect(ui->sdwdiscard_pushButton, SIGNAL(released()), this, SLOT(toMainMenu()));
+    connect(ui->sdwdiscard_pushButton, SIGNAL(released()), this, SLOT(initSettings()));
+    connect(ui->sdwconfirm_pushButton, SIGNAL(released()), this, SLOT(toMainMenu()));
+    connect(ui->sdwconfirm_pushButton, SIGNAL(released()), this, SLOT(confirmSettings()));
+    connect(ui->sdwload_pushButton, SIGNAL(released()), this, SLOT(loadDefSetts()));
+    connect(ui->sdwsave_pushButton, SIGNAL(released()), this, SLOT(saveDefSetts()));
+
+}
+
+void MainWindow::preview(){
+    QDesktopWidget desktop;
+    int height=desktop.geometry().height();
+    int width=desktop.geometry().width();
+
+    int prev_3D, prev_invcanv, prev_seplinecol, prev_seplinew;
+    int prev_c1w, prev_c1h, prev_c2w, prev_c2h, prev_c1x, prev_c1y, prev_c2x, prev_c2y, prev_c1f2D, prev_c1f3D, prev_c2f2D, prev_c2f3D;
+    int prev_w, prev_h;
+
+    QImage preview_cam1(":/imageformats/preview_cam1.jpg");
+    QImage preview_cam2(":/imageformats/preview_cam2.jpg");
+
+    //General
+    prev_3D=ui->y3D_radioButton->isChecked();
+    prev_invcanv=ui->invertcanvasy_radioButton->isChecked();
+    prev_seplinecol=ui->sepline_comboBox->currentIndex();
+    prev_seplinew=ui->sepline_spinBox->value();
+    //Canvas
+    prev_c1w=ui->canvas1width_spinBox->value();
+    prev_c1h=ui->canvas1height_spinBox->value();
+    prev_c2w=ui->canvas2width_spinBox->value();
+    prev_c2h=ui->canvas2height_spinBox->value();
+    prev_c1x=ui->canvas1posx_spinBox->value();
+    prev_c1y=ui->canvas1posy_spinBox->value();
+    prev_c2x=ui->canvas2posx_spinBox->value();
+    prev_c2y=ui->canvas2posy_spinBox->value();
+    prev_c1f2D=ui->canvas1fit2D_comboBox->currentIndex();
+    prev_c1f3D=ui->canvas1fit3D_comboBox->currentIndex();
+    prev_c2f2D=ui->canvas2fit2D_comboBox->currentIndex();
+    prev_c2f3D=ui->canvas2fit3D_comboBox->currentIndex();
+    //Camera
+    prev_w=ui->camresw_spinBox->value();
+    prev_h=ui->camresh_spinBox->value();
+
+    preview_cam1.scaled(prev_w, prev_h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    preview_cam2.scaled(prev_w, prev_h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+
+    ui->previewcanv1_image->setAlignment(Qt::AlignCenter);
+    ui->previewcanv2_image->setAlignment(Qt::AlignCenter);
+    ui->previewcanv1_image->setGeometry(prev_c1x, prev_c1y, prev_c1w, prev_c1h);
+    ui->previewcanv2_image->setGeometry(prev_c2x, prev_c2y, prev_c2w, prev_c2h);
+
+    if(prev_3D){
+        if(!prev_invcanv){
+            switch(prev_c1f3D){
+            case 0:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam1));
+                break;
+            case 1:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam1.scaled(prev_c1w, prev_c1h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                break;
+            }
+            switch(prev_c2f3D){
+            case 0:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam2));
+                break;
+            case 1:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam2.scaled(prev_c2w, prev_c2h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                break;
+            }
+        }
+        else{
+            switch(prev_c1f3D){
+            case 0: ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam2));
+                    break;
+            case 1: ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam2.scaled(prev_c1w, prev_c1h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                    break;
+            }
+            switch(prev_c2f3D){
+            case 0:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam1));
+                break;
+            case 1:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam1.scaled(prev_c2w, prev_c2h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                break;
+            }
+        }
+    }
+    else{
+        if(!prev_invcanv){
+            switch(prev_c1f2D){
+            case 0:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam1));
+                break;
+            case 1:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam1.scaledToHeight(prev_c1h, Qt::SmoothTransformation)));
+                break;
+            case 2:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam1.scaledToWidth(prev_c1w, Qt::SmoothTransformation)));
+                break;
+            case 3:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam1.scaled(prev_c1w, prev_c1h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                break;
+            }
+            switch(prev_c2f2D){
+            case 0:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam2));
+                break;
+            case 1:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam2.scaledToHeight(prev_c2h, Qt::SmoothTransformation)));
+                break;
+            case 2:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam2.scaledToWidth(prev_c2w, Qt::SmoothTransformation)));
+                break;
+            case 3:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam2.scaled(prev_c2w, prev_c2h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                break;
+            }
+        }
+        else{
+            switch(prev_c1f2D){
+            case 0:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam2));
+                break;
+            case 1:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam2.scaledToHeight(prev_c1h, Qt::SmoothTransformation)));
+                break;
+            case 2:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam2.scaledToWidth(prev_c1w,Qt::SmoothTransformation)));
+                break;
+            case 3:
+                ui->previewcanv1_image->setPixmap(QPixmap::fromImage(preview_cam2.scaled(prev_c1w, prev_c1h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                break;
+            }
+            switch(prev_c2f2D){
+            case 0:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam1));
+                break;
+            case 1:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam1.scaledToHeight(prev_c2h, Qt::SmoothTransformation)));
+                break;
+            case 2:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam1.scaledToWidth(prev_c2w, Qt::SmoothTransformation)));
+                break;
+            case 3:
+                ui->previewcanv2_image->setPixmap(QPixmap::fromImage(preview_cam1.scaled(prev_c2w, prev_c2h, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+                break;
+            }
+        }
+    }
+    ui->preview_line->setGeometry((width-ui->sepline_spinBox->maximum())/2, 0, ui->sepline_spinBox->maximum(), height);
+    ui->preview_line->setLineWidth(prev_seplinew);
+    //0=No, 1=Black #000000, 2=White #ffffff, 3=Grey #808080, 4=Red #ff0000, 5=Green #00ff00, 6=Blue #0000ff, 7=Yellow #ffff00, 8=Magenta #ff00ff, 9=Cyan #00ffff
+    switch(prev_seplinecol){
+    case 1:
+        ui->preview_line->setStyleSheet("color: rgb(0, 0, 0);");
+        break;
+    case 2:
+        ui->preview_line->setStyleSheet("color: rgb(255, 255, 255);");
+        break;
+    case 3:
+        ui->preview_line->setStyleSheet("color: rgb(128, 128, 128);");
+        break;
+    case 4:
+        ui->preview_line->setStyleSheet("color: rgb(255, 0, 0);");
+        break;
+    case 5:
+        ui->preview_line->setStyleSheet("color: rgb(0, 255, 0);");
+        break;
+    case 6:
+        ui->preview_line->setStyleSheet("color: rgb(0, 0, 255);");
+        break;
+    case 7:
+        ui->preview_line->setStyleSheet("color: rgb(255, 255, 0);");
+        break;
+    case 8:
+        ui->preview_line->setStyleSheet("color: rgb(255, 0, 255);");
+        break;
+    case 9:
+        ui->preview_line->setStyleSheet("color: rgb(0, 255, 255);");
+        break;
+    }
+
+    ui->stackedWidget->setCurrentIndex(5);
+    QTimer::singleShot(5000, this, SLOT(prevIndex()));  //5 seconds preview
+}
+
+void MainWindow::GamepadMonitor(){
+    auto gamepads = QGamepadManager::instance()->connectedGamepads();
+    if (gamepads.isEmpty()) {
+        return;
+    }
+
+    m_gamepad = new QGamepad(*gamepads.begin(), this);
+    connect(m_gamepad, &QGamepad::axisLeftXChanged, this, SLOT(AxisLeftXAction(double)));
+    connect(m_gamepad, &QGamepad::axisLeftYChanged, this, SLOT(AxisLeftYAction(double)));
+    connect(m_gamepad, &QGamepad::axisRightXChanged, this, SLOT(AxisRightXAction(double)));
+    connect(m_gamepad, &QGamepad::axisRightYChanged, this, SLOT(AxisRightYAction(double)));
+    connect(m_gamepad, &QGamepad::buttonAChanged, this, SLOT(ButtonAAction(double)));
+    connect(m_gamepad, &QGamepad::buttonBChanged, this, SLOT(ButtonBAction(double)));
+    connect(m_gamepad, &QGamepad::buttonXChanged, this, SLOT(ButtonXAction(double)));
+    connect(m_gamepad, &QGamepad::buttonYChanged, this, SLOT(ButtonYAction(double)));
+    connect(m_gamepad, &QGamepad::buttonL1Changed, this, SLOT(ButtonL1Action(double)));
+    connect(m_gamepad, &QGamepad::buttonL2Changed, this, SLOT(ButtonL2Action(double)));
+    connect(m_gamepad, &QGamepad::buttonL3Changed, this, SLOT(ButtonL3Action(double)));
+    connect(m_gamepad, &QGamepad::buttonR1Changed, this, SLOT(ButtonR1Action(double)));
+    connect(m_gamepad, &QGamepad::buttonR2Changed, this, SLOT(ButtonR2Action(double)));
+    connect(m_gamepad, &QGamepad::buttonR3Changed, this, SLOT(ButtonAAction(double)));
+    connect(m_gamepad, &QGamepad::buttonCenterChanged, this, SLOT(ButtonCenterAction(double)));
+    connect(m_gamepad, &QGamepad::buttonUpChanged, this, SLOT(ButtonUpAction(double)));
+    connect(m_gamepad, &QGamepad::buttonDownChanged, this, SLOT(ButtonDownAction(double)));
+    connect(m_gamepad, &QGamepad::buttonLeftChanged, this, SLOT(ButtonLeftAction(double)));
+    connect(m_gamepad, &QGamepad::buttonRightChanged, this, SLOT(ButtonRightAction(double)));
+
+}
+
+void MainWindow::AxisLeftXAction(double value){
+    ui->lastGamepadKeyPressed->setCurrentIndex(1);
+    switch(action_axisleftx){
+    case 1:
+        value_accelerator=value;
+        break;
+    case 2:
+        value_brake=value;
+        break;
+    case 3:
+        value_xmovement=value;
+        break;
+    case 4:
+        value_ymovement=value;
+        break;
+    case 5:
+        value_lrotation=value;
+        break;
+    case 6:
+        value_rrotation=value;
+        break;
+    }
+    }
+}
+void MainWindow::AxisLeftYAction(double value){
+    ui->lastGamepadKeyPressed->setCurrentIndex(1);
+    switch(action_axislefty){
+    case 1:
+        value_accelerator=value;
+        break;
+    case 2:
+        value_brake=value;
+        break;
+    case 3:
+        value_xmovement=value;
+        break;
+    case 4:
+        value_ymovement=value;
+        break;
+    case 5:
+        value_lrotation=value;
+        break;
+    case 6:
+        value_rrotation=value;
+        break;
+    }
+    }
+}

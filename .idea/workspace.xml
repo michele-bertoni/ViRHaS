@@ -2,7 +2,112 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aaf63c3-1c14-4695-bb29-71eaaa646233" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/android-sources/res/drawable-hdpi/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/android-sources/res/drawable-ldpi/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/android-sources/res/drawable-mdpi/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/icon/ViRHaS_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/icon/ViRHaS_icon.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/icon/ViRHaS_icon200.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/background_black.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/background_dialoguewindow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/background_polimi.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/activecameras.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c1fit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c1height.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c1pos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c1width.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c2fit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c2height.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c2pos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/c2width.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/camfps.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/camres.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/controlsettings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/enable3D.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/enablegamepad.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/gpaction9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/invcanv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/label_360x54.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/label_720x108.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/sepline.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/labels/videosettings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqdds.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqgif.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqicns.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqico.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqjpeg.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqsvg.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqtga.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqtiff.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqwbmp.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/libqwebp.so" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/logo_airlab.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/logo_polimi.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/logo_polimi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/polimi_3D_dx.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/polimi_3D_sx.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/preview_cam1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageformats/preview_cam2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/ViRHaS.pro" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/actions_enum.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/android-sources/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/android-sources/OpenAndroidSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/buttonsclass.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/buttonsclass.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/camerastream.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/camerastream.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/controlstransmission.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/controlstransmission.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/errorclass.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/errorclass.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/errors.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/gamepadkeyclass.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/gamepadkeyclass.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/gamepadmonitor.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/gamepadmonitor.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageprinter.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imageprinter.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imagewidget.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/imagewidget.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/install-xboxone-guide" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/main.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mainwindow.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mainwindow.cpp.Jw4356" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mainwindow.cpp.wl1639" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mainwindow.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mainwindow.ui" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mainwindow.ui.LG1912" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mouseeventlabel.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/mouseeventlabel.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/resources.qrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/robot_structures.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/screenconstants.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/screeninitialization.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/screeninitialization.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/screenmanipulation.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/screenmanipulation.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/server_information.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/settingsclass.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/settingsclass.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/sleep.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/status_enum.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/udpstreamreceiver.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/udpstreamreceiver.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/vibrator.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/vibrator.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/virhassettings.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/websocketclient.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/websocketclient.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViRHaS_app/windows_enum.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="4" lean-forward="true" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+              <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -96,6 +201,9 @@
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -510,7 +618,7 @@
       <updated>1499072495114</updated>
       <workItem from="1499072497485" duration="379000" />
       <workItem from="1499073201474" duration="46000" />
-      <workItem from="1499073281227" duration="253000" />
+      <workItem from="1499073281227" duration="582000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1499072653444</created>
@@ -540,11 +648,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499073438784</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added .gitignore">
+      <created>1499073545298</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1499073545298</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="678000" />
+    <option name="totallyTimeSpent" value="1007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="745" extended-state="6" />
@@ -618,7 +733,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="true" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
           <folding />
         </state>
       </provider>

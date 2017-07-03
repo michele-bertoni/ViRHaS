@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imageformats/logo_polimi.png</file>
+        <file>imageformats/background_polimi.jpg</file>
+        <file>imageformats/logo_polimi.jpg</file>
+        <file>imageformats/labels/enable3D.png</file>
+        <file>imageformats/labels/activecameras.png</file>
+        <file>imageformats/labels/controlsettings.png</file>
+        <file>imageformats/labels/videosettings.png</file>
+        <file>imageformats/logo_airlab.gif</file>
+        <file>imageformats/labels/camres.png</file>
+        <file>imageformats/labels/c1height.png</file>
+        <file>imageformats/labels/c1width.png</file>
+        <file>imageformats/labels/c2height.png</file>
+        <file>imageformats/labels/c2width.png</file>
+        <file>imageformats/background_dialoguewindow.png</file>
+        <file>imageformats/preview_cam1.jpg</file>
+        <file>imageformats/preview_cam2.jpg</file>
+        <file>imageformats/labels/c1fit.png</file>
+        <file>imageformats/labels/c1pos.png</file>
+        <file>imageformats/labels/c2fit.png</file>
+        <file>imageformats/labels/c2pos.png</file>
+        <file>imageformats/labels/camfps.png</file>
+        <file>imageformats/labels/invcanv.png</file>
+        <file>imageformats/labels/sepline.png</file>
+        <file>imageformats/labels/enablegamepad.png</file>
+        <file>imageformats/labels/gpaction1.png</file>
+        <file>imageformats/labels/gpaction2.png</file>
+        <file>imageformats/labels/gpaction3.png</file>
+        <file>imageformats/labels/gpaction4.png</file>
+        <file>imageformats/labels/gpaction5.png</file>
+        <file>imageformats/labels/gpaction6.png</file>
+        <file>imageformats/labels/gpaction7.png</file>
+        <file>imageformats/labels/gpaction8.png</file>
+        <file>imageformats/labels/gpaction9.png</file>
+        <file>imageformats/background_black.jpg</file>
+    </qresource>
+</RCC>

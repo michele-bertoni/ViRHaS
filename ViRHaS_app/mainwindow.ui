@@ -1,0 +1,3244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1920</width>
+      <height>1080</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="polimi_logo">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>1280</width>
+        <height>720</height>
+       </size>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/logo_polimi.png</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QLabel" name="AIRLab_logo">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/logo_airlab.gif</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QPushButton" name="configuration_button">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>450</y>
+        <width>478</width>
+        <height>175</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Configuration</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="help_button">
+      <property name="geometry">
+       <rect>
+        <x>963</x>
+        <y>450</y>
+        <width>477</width>
+        <height>175</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Help</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="credits_button">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>630</y>
+        <width>478</width>
+        <height>175</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Credits</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="version_label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>1050</y>
+        <width>200</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; color:#ffffff;&quot;&gt;Version 1.1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_polimi">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/background_polimi.jpg</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="exit_button">
+      <property name="geometry">
+       <rect>
+        <x>963</x>
+        <y>630</y>
+        <width>477</width>
+        <height>175</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="connect_button">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>270</y>
+        <width>960</width>
+        <height>175</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Connect</string>
+      </property>
+     </widget>
+     <zorder>background_polimi</zorder>
+     <zorder>configuration_button</zorder>
+     <zorder>help_button</zorder>
+     <zorder>credits_button</zorder>
+     <zorder>version_label</zorder>
+     <zorder>exit_button</zorder>
+     <zorder>connect_button</zorder>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <widget class="QLabel" name="credits">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Developed by Michele Bertoni</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="toMainMenu_button">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>972</y>
+        <width>108</width>
+        <height>108</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>←</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="background_polimi_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/background_polimi.jpg</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <zorder>background_polimi_2</zorder>
+     <zorder>credits</zorder>
+     <zorder>toMainMenu_button</zorder>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <widget class="QLabel" name="background_polimi_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/background_polimi.jpg</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="videosettings_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>54</y>
+        <width>720</width>
+        <height>108</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/videosettings.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="controlssettings_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>54</y>
+        <width>720</width>
+        <height>108</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/controlsettings.png</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="Line" name="sepsettings_line">
+      <property name="geometry">
+       <rect>
+        <x>955</x>
+        <y>0</y>
+        <width>10</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>10</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="enable3D_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>167</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/enable3D.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="activecameras_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>226</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/activecameras.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="canvas1width_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>403</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c1width.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="y3D_radioButton">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>167</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Yes</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">enable3D_buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="n3D_radioButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>167</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>No</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">enable3D_buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="canvas1height_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>462</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c1height.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="leftcamera_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>226</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Left</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="rightcamera_checkBox">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>226</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Right</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="settdialoguewindow_button">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>972</y>
+        <width>108</width>
+        <height>108</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>←</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="camres_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>285</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/camres.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="camresw_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>285</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string>W:</string>
+      </property>
+      <property name="maximum">
+       <number>1920</number>
+      </property>
+      <property name="singleStep">
+       <number>16</number>
+      </property>
+      <property name="value">
+       <number>1920</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="camresh_spinBox">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>285</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="prefix">
+       <string>H:</string>
+      </property>
+      <property name="maximum">
+       <number>1080</number>
+      </property>
+      <property name="singleStep">
+       <number>9</number>
+      </property>
+      <property name="value">
+       <number>1080</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas1width_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>403</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string/>
+      </property>
+      <property name="maximum">
+       <number>1920</number>
+      </property>
+      <property name="singleStep">
+       <number>16</number>
+      </property>
+      <property name="value">
+       <number>1920</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas1widthM_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>403</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas1widthP_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>403</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas1heightM_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>462</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas1heightP_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>462</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas1height_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>462</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string/>
+      </property>
+      <property name="maximum">
+       <number>1080</number>
+      </property>
+      <property name="singleStep">
+       <number>9</number>
+      </property>
+      <property name="value">
+       <number>1080</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas1posx_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>521</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string>X:</string>
+      </property>
+      <property name="maximum">
+       <number>1920</number>
+      </property>
+      <property name="singleStep">
+       <number>16</number>
+      </property>
+      <property name="value">
+       <number>1920</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas1posy_spinBox">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>521</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="prefix">
+       <string>Y:</string>
+      </property>
+      <property name="maximum">
+       <number>1080</number>
+      </property>
+      <property name="singleStep">
+       <number>9</number>
+      </property>
+      <property name="value">
+       <number>1080</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="canvas1pos_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>521</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c1pos.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas2heightP_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>698</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="canvas2height_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>698</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c2height.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="canvas2pos_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>757</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c2pos.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas2widthM_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>639</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas2heightM_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>698</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas2height_spinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>698</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string/>
+      </property>
+      <property name="maximum">
+       <number>1080</number>
+      </property>
+      <property name="singleStep">
+       <number>9</number>
+      </property>
+      <property name="value">
+       <number>1080</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas2posy_spinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>757</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="prefix">
+       <string>Y:</string>
+      </property>
+      <property name="maximum">
+       <number>1080</number>
+      </property>
+      <property name="singleStep">
+       <number>9</number>
+      </property>
+      <property name="value">
+       <number>1080</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="canvas2width_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>639</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c2width.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas2posx_spinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>757</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string>X:</string>
+      </property>
+      <property name="maximum">
+       <number>1920</number>
+      </property>
+      <property name="singleStep">
+       <number>16</number>
+      </property>
+      <property name="value">
+       <number>1920</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="canvas2width_spinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>639</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string/>
+      </property>
+      <property name="prefix">
+       <string/>
+      </property>
+      <property name="maximum">
+       <number>1920</number>
+      </property>
+      <property name="singleStep">
+       <number>16</number>
+      </property>
+      <property name="value">
+       <number>1920</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="canvas2widthP_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>639</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="invertcanvasn_radioButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>875</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>No</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">invertcanvas_buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="invertcanvas_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>875</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/invcanv.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="invertcanvasy_radioButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>875</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Yes</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">invertcanvas_buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="sepline_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>934</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/sepline.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="sepline_comboBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>934</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>No</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Black</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>White</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Grey</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Red</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Green</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Blue</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Yellow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Magenta</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cyan</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QSpinBox" name="sepline_spinBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>934</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="suffix">
+       <string>px</string>
+      </property>
+      <property name="prefix">
+       <string>W: </string>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="singleStep">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="canvas1fit_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>580</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c1fit.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="canvas1fit2D_comboBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>580</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Center</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fill</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fit</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Stretch</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="canvas2fit_label">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>816</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/c2fit.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="canvas2fit2D_comboBox">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>816</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Center</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fill</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fit</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Stretch</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="canvas1fit3D_comboBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>580</y>
+        <width>300</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>3D goggles center</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3D goggles fill</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3D goggles fit</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3D screen</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="canvas2fit3D_comboBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>816</y>
+        <width>300</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>3D goggles center</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3D goggles fill</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3D goggles fit</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3D screen</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="camfpsP_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>344</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="camfps_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>344</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="locale">
+       <locale language="Italian" country="Italy"/>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="correctionMode">
+       <enum>QAbstractSpinBox::CorrectToPreviousValue</enum>
+      </property>
+      <property name="minimum">
+       <number>2</number>
+      </property>
+      <property name="maximum">
+       <number>30</number>
+      </property>
+      <property name="value">
+       <number>30</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="camfps_label">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>344</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/camfps.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="camfpsM_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>344</y>
+        <width>90</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sdwload_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>637</x>
+        <y>529</y>
+        <width>320</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sdwsave_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>963</x>
+        <y>529</y>
+        <width>320</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sdwX_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1256</x>
+        <y>497</y>
+        <width>27</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="settloadsavewindow_button">
+      <property name="geometry">
+       <rect>
+        <x>1812</x>
+        <y>972</y>
+        <width>108</width>
+        <height>108</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>💾</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sdwdiscard_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>637</x>
+        <y>529</y>
+        <width>320</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Discard</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sdwconfirm_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>963</x>
+        <y>529</y>
+        <width>320</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Confirm</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sdw_background">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/background_dialoguewindow.png</pixmap>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="preview_button">
+      <property name="geometry">
+       <rect>
+        <x>906</x>
+        <y>972</y>
+        <width>108</width>
+        <height>108</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>26</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>👁</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="lastGamepadKeyPressed">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>0</y>
+        <width>301</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>NULL</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisLeftX-</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisLeftX+</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisLeftY-</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisLeftY+</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisRightX-</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisRightX+</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisRightY-</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AxisRightY+</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonA</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonX</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonY</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonL1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonL2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonL3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonR1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonR2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonR3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonCenter</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonUp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonDown</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonLeft</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonRight</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonSelect</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonStart</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ButtonGuide</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QRadioButton" name="enablegamepadn_radioButton">
+      <property name="geometry">
+       <rect>
+        <x>1620</x>
+        <y>167</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>No</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">enablegamepad_buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="enablegamepady_radioButton">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>167</y>
+        <width>180</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Yes</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">enablegamepad_buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="enablegamepad_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>167</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/enablegamepad.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction1_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>226</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction1_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>226</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction1_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>226</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction1_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>226</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction1.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction2_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>285</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction2_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>285</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction2.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction2_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>285</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction2_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>285</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction3_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>344</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction3_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>344</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction3_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>344</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction3.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction3_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>344</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction4_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>403</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction4_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>403</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction4_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>403</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction4_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>403</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction4.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction5_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>462</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction5_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>462</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction5_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>462</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction5.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction5_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>462</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction6_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>521</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction6_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>521</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction6_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>521</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction6.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction6_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>521</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction7_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>580</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction7_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>580</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction7_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>580</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction7.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction7_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>580</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction8_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>639</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction8_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>639</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction8_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>639</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction8.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction8_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>639</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="gpaction9_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1680</x>
+        <y>698</y>
+        <width>120</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EDIT</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction9_text">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>698</y>
+        <width>240</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string>NULL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="gpaction9_label">
+      <property name="geometry">
+       <rect>
+        <x>1080</x>
+        <y>698</y>
+        <width>360</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sans</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/labels/gpaction9.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="gpaction9_spinBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>698</y>
+        <width>48</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="keyboardTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>26</number>
+      </property>
+     </widget>
+     <zorder>background_polimi_3</zorder>
+     <zorder>videosettings_label</zorder>
+     <zorder>controlssettings_label</zorder>
+     <zorder>sepsettings_line</zorder>
+     <zorder>enable3D_label</zorder>
+     <zorder>activecameras_label</zorder>
+     <zorder>canvas1width_label</zorder>
+     <zorder>y3D_radioButton</zorder>
+     <zorder>n3D_radioButton</zorder>
+     <zorder>canvas1height_label</zorder>
+     <zorder>leftcamera_checkBox</zorder>
+     <zorder>rightcamera_checkBox</zorder>
+     <zorder>settdialoguewindow_button</zorder>
+     <zorder>camres_label</zorder>
+     <zorder>camresw_spinBox</zorder>
+     <zorder>camresh_spinBox</zorder>
+     <zorder>canvas1width_spinBox</zorder>
+     <zorder>canvas1widthM_pushButton</zorder>
+     <zorder>canvas1widthP_pushButton</zorder>
+     <zorder>canvas1heightM_pushButton</zorder>
+     <zorder>canvas1heightP_pushButton</zorder>
+     <zorder>canvas1height_spinBox</zorder>
+     <zorder>canvas1posx_spinBox</zorder>
+     <zorder>canvas1posy_spinBox</zorder>
+     <zorder>canvas1pos_label</zorder>
+     <zorder>canvas2heightP_pushButton</zorder>
+     <zorder>canvas2height_label</zorder>
+     <zorder>canvas2pos_label</zorder>
+     <zorder>canvas2widthM_pushButton</zorder>
+     <zorder>canvas2heightM_pushButton</zorder>
+     <zorder>canvas2height_spinBox</zorder>
+     <zorder>canvas2posy_spinBox</zorder>
+     <zorder>canvas2width_label</zorder>
+     <zorder>canvas2posx_spinBox</zorder>
+     <zorder>canvas2width_spinBox</zorder>
+     <zorder>canvas2widthP_pushButton</zorder>
+     <zorder>invertcanvasn_radioButton</zorder>
+     <zorder>invertcanvas_label</zorder>
+     <zorder>invertcanvasy_radioButton</zorder>
+     <zorder>sepline_label</zorder>
+     <zorder>sepline_comboBox</zorder>
+     <zorder>sepline_spinBox</zorder>
+     <zorder>canvas1fit_label</zorder>
+     <zorder>canvas2fit_label</zorder>
+     <zorder>camfpsP_pushButton</zorder>
+     <zorder>camfps_spinBox</zorder>
+     <zorder>camfps_label</zorder>
+     <zorder>camfpsM_pushButton</zorder>
+     <zorder>settloadsavewindow_button</zorder>
+     <zorder>preview_button</zorder>
+     <zorder>lastGamepadKeyPressed</zorder>
+     <zorder>enablegamepadn_radioButton</zorder>
+     <zorder>enablegamepady_radioButton</zorder>
+     <zorder>enablegamepad_label</zorder>
+     <zorder>canvas2fit3D_comboBox</zorder>
+     <zorder>canvas1fit3D_comboBox</zorder>
+     <zorder>canvas2fit2D_comboBox</zorder>
+     <zorder>canvas1fit2D_comboBox</zorder>
+     <zorder>gpaction1_pushButton</zorder>
+     <zorder>gpaction1_text</zorder>
+     <zorder>gpaction1_spinBox</zorder>
+     <zorder>gpaction1_label</zorder>
+     <zorder>gpaction2_text</zorder>
+     <zorder>gpaction2_label</zorder>
+     <zorder>gpaction2_spinBox</zorder>
+     <zorder>gpaction2_pushButton</zorder>
+     <zorder>gpaction3_pushButton</zorder>
+     <zorder>gpaction3_label</zorder>
+     <zorder>gpaction3_text</zorder>
+     <zorder>gpaction3_spinBox</zorder>
+     <zorder>gpaction4_pushButton</zorder>
+     <zorder>gpaction4_text</zorder>
+     <zorder>gpaction4_spinBox</zorder>
+     <zorder>gpaction4_label</zorder>
+     <zorder>gpaction5_pushButton</zorder>
+     <zorder>gpaction5_label</zorder>
+     <zorder>gpaction5_text</zorder>
+     <zorder>gpaction5_spinBox</zorder>
+     <zorder>gpaction6_pushButton</zorder>
+     <zorder>gpaction6_text</zorder>
+     <zorder>gpaction6_label</zorder>
+     <zorder>gpaction6_spinBox</zorder>
+     <zorder>gpaction7_pushButton</zorder>
+     <zorder>gpaction7_text</zorder>
+     <zorder>gpaction7_label</zorder>
+     <zorder>gpaction7_spinBox</zorder>
+     <zorder>gpaction8_text</zorder>
+     <zorder>gpaction8_pushButton</zorder>
+     <zorder>gpaction8_label</zorder>
+     <zorder>gpaction8_spinBox</zorder>
+     <zorder>gpaction9_pushButton</zorder>
+     <zorder>gpaction9_text</zorder>
+     <zorder>gpaction9_label</zorder>
+     <zorder>gpaction9_spinBox</zorder>
+     <zorder>sdw_background</zorder>
+     <zorder>sdwdiscard_pushButton</zorder>
+     <zorder>sdwsave_pushButton</zorder>
+     <zorder>sdwload_pushButton</zorder>
+     <zorder>sdwX_pushButton</zorder>
+     <zorder>sdwconfirm_pushButton</zorder>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <widget class="QLabel" name="previewcanv2_image">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>640</y>
+        <width>221</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Canvas 2</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="previewcanv1_image">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>680</y>
+        <width>221</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Canvas 1</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="Line" name="preview_line">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>0</y>
+        <width>20</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0)
+</string>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_7">
+     <widget class="QPushButton" name="disconnect_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>972</y>
+        <width>108</width>
+        <height>108</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>←</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>0</y>
+        <width>20</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0)
+</string>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="errortext_label">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>250</y>
+        <width>521</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>28</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>5</number>
+      </property>
+     </widget>
+     <widget class="mouseEventLabel" name="mouseEvent">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="errortext_label2">
+      <property name="geometry">
+       <rect>
+        <x>1310</x>
+        <y>740</y>
+        <width>521</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>28</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="margin">
+       <number>5</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="X_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>1250</x>
+        <y>730</y>
+        <width>54</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="container1" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>960</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <widget class="ImageWidget" name="canvas1">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>960</width>
+         <height>1080</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="container2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>960</x>
+        <y>0</y>
+        <width>960</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <widget class="ImageWidget" name="canvas2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>960</width>
+         <height>1080</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="background">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1920</width>
+        <height>1080</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resources.qrc">:/imageformats/background_black.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <zorder>background</zorder>
+     <zorder>container2</zorder>
+     <zorder>container1</zorder>
+     <zorder>line</zorder>
+     <zorder>mouseEvent</zorder>
+     <zorder>disconnect_pushButton</zorder>
+     <zorder>errortext_label</zorder>
+     <zorder>errortext_label2</zorder>
+     <zorder>X_pushButton</zorder>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>mouseEventLabel</class>
+   <extends>QLabel</extends>
+   <header>mouseeventlabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ImageWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header location="global">imagewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="invertcanvas_buttonGroup"/>
+  <buttongroup name="enablegamepad_buttonGroup"/>
+  <buttongroup name="enable3D_buttonGroup"/>
+ </buttongroups>
+</ui>
