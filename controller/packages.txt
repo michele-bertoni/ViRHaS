@@ -12,4 +12,4 @@ L'eseguibile viene salvato nella stessa cartella
 
 sudo modprobe bcm2835-v4l2
 
-how to use a pushbutton to switch raspberry off: https://www.youtube.com/watch?v=AQkN9tkXbYs
+how to use a pushbutton to switch raspberry off: https://www.youtube.com/watch?v=Ns0JdZrXwdk
