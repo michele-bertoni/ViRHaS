@@ -4,6 +4,7 @@ qtwebsockets5-dbg
 per info sulla webcam: v4l-utils
 v4l2-ctl --list-formats-ext
 libgl1-mesa-dev
+libqt5serialport5-dev
 
 Per compilare installare qt5-default, dare il comando qmake una sola volta dopodiché make per compilare i sorgenti
 L'eseguibile viene salvato nella stessa cartella
