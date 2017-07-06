@@ -64,9 +64,9 @@ public:
     QByteArray toByteArray(){
         char byteArray[4];
 
-        byteArray[0]=(char)(floor(100*strafe));
-        byteArray[1]=(char)(floor(100*forward));
-        byteArray[2]=(char)(floor(100*angular));
+        byteArray[0]=(char)(floor(50*strafe)+50);
+        byteArray[1]=(char)(floor(50*forward)+50);
+        byteArray[2]=(char)(floor(50*angular)+50);
         byteArray[3]='n';
 
         return QByteArray(byteArray, 4);
