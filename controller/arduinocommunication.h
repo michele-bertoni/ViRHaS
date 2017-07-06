@@ -4,6 +4,8 @@
 #include <QObject>
 #include "QtSerialPort/QSerialPort"
 #include "QtSerialPort/QSerialPortInfo"
+#include "iostream"
+#include "QByteArray"
 
 
 class ArduinoCommunication : public QObject
@@ -15,10 +17,12 @@ public:
 signals:
 
 public slots:
-    void sendToArduino(QString);
+    void sendToArduino(QByteArray);
 
 private:
     QSerialPort arduinoPort;
+    QByteArray lastSent = QByteArray();
+    bool compare(QByteArray array);
 };
 
 #endif // ARDUINOCOMMUNICATION_H

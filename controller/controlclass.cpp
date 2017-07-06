@@ -10,6 +10,9 @@ ControlClass::ControlClass(QObject *parent) : QObject(parent)
     this->speedVector = new SpeedVector(this);
     this->arduinoComm = new ArduinoCommunication(this);
 
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    timer->start(100);
 }
 
 
@@ -111,6 +114,8 @@ void ControlClass::actionSlot(control_t control){
               << ", Forward: " << this->speedVector->forward
               << ", Angular: " << this->speedVector->angular
               << "\n";*/
-    std::cout << this->speedVector->toString().toStdString();
-    arduinoComm->sendToArduino(this->speedVector->toString());
+}
+
+void ControlClass::update(){
+    arduinoComm->sendToArduino(this->speedVector->toByteArray());
 }

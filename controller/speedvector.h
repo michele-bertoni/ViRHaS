@@ -61,6 +61,17 @@ public:
         return vectorString;
     }
 
+    QByteArray toByteArray(){
+        char byteArray[4];
+
+        byteArray[0]=(char)(floor(100*strafe));
+        byteArray[1]=(char)(floor(100*forward));
+        byteArray[2]=(char)(floor(100*angular));
+        byteArray[3]='n';
+
+        return QByteArray(byteArray, 4);
+    }
+
 };
 
 #endif // VECTOR_H

@@ -7,6 +7,7 @@
 #include <events_enum.h>
 #include <speedvector.h>
 #include <arduinocommunication.h>
+#include <QTimer>
 
 class ControlClass : public QObject
 {
@@ -21,10 +22,12 @@ public slots:
 
 private slots:
     void actionSlot(control_t control);
+    void update();
 
 private:
     WebSocketServer *cserver;
     ArduinoCommunication *arduinoComm;
+    QTimer *timer;
     float acceleration; //value from 0 to +1
     float deceleration; //value from -1 to 0
     float ypmovement;   //value from -1 to +1
