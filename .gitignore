@@ -1,1 +1,6 @@
-/.idea
+.idea/
+build*/
+*/*.pro.user
+pins_connections.png
+pins_connections.xlsx
+pins_connections_rid.png
