@@ -17,9 +17,9 @@
 #define _2A 7
 #define _2B 8
 #define _2E 9
-#define _3A 10
-#define _3B 11
-#define _3E 12
+#define _3A 52
+#define _3B 50
+#define _3E 10
 
 //max speeds
 #define _MAX_SPEED 60 
